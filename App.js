@@ -28,7 +28,14 @@ const App = () => {
       setData({...data, loading: true});
       const locationId = await fetchLocationId(city);
       const {weather, location, temperature} = await fetchWeather(locationId);
-      setData({...data, weather, location, temperature, loading: false});
+      setData({
+        ...data,
+        weather,
+        location,
+        temperature,
+        loading: false,
+        error: false,
+      });
     } catch (err) {
       setData({...data, error: true, loading: false});
     }
